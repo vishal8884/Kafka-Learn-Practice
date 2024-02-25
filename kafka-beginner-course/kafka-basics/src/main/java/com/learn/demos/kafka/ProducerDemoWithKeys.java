@@ -33,7 +33,7 @@ public class ProducerDemoWithKeys {
             for(int i=0;i<10;i++){
                 //create a producer record
                 String key = "key_"+i;
-                String value = "Hello Kafka "+i+"   batch :: "+j;
+                String value = "Vishal "+i+" "+j;
                 ProducerRecord<String,String> producerRecord = new ProducerRecord<>("TopicA",key,value);
 
                 //send data

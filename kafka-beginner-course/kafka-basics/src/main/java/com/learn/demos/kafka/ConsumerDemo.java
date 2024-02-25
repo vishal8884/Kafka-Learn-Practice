@@ -2,6 +2,7 @@ package com.learn.demos.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.CooperativeStickyAssignor;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public class ConsumerDemo {
         props.put("group.id", consumerGroupId);
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        props.put("partition.assignment.strategy", CooperativeStickyAssignor.class.getName());
 
         //creating kafka consumer object
         KafkaConsumer<String,String> kafkaConsumer = new KafkaConsumer<>(props);
